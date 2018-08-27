@@ -59,3 +59,10 @@ typings/
 
 # next.js build output
 .next
+
+yarn.lock
+package-lock.json
+
+# Only apps should have lockfiles
+yarn.lock
+package-lock.json
