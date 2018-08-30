@@ -6,10 +6,12 @@
   "license": "",
   "scripts": {
     "prestart": "babel-node scripts/startMessage.js",
-    "start": "npm-run-all --parallel open:src",
+    "start": "npm-run-all --parallel open:src lint:watch",
     "open:src": "babel-node scripts/app.js",
     "localtunnel": "lt --port 3000 --subdomain mvciekzvbek",
-    "share": "npm-run-all --parallel open:src localtunnel"
+    "share": "npm-run-all --parallel open:src localtunnel",
+    "lint": "esw webpack.config.* src scripts",
+    "lint:watch": "npm run lint -- --watch"
   },
   "dependencies": {},
   "devDependencies": {
