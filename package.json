@@ -7,7 +7,7 @@
   "scripts": {
     "prestart": "babel-node buildScripts/startMessage.js",
     "start": "npm-run-all --parallel open:src lint:watch test:watch",
-    "open:src": "babel-node buildScripts/app.js",
+    "open:src": "babel-node buildScripts/srcServer.js",
     "localtunnel": "lt --port 3000 --subdomain mvciekzvbek",
     "share": "npm-run-all --parallel open:src localtunnel",
     "lint": "esw webpack.config.* src buildScripts",
@@ -15,7 +15,9 @@
     "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
     "test:watch": "npm run test -- --watch"
   },
-  "dependencies": {},
+  "dependencies": {
+    "whatwg-fetch": "^3.0.0"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
