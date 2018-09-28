@@ -4,14 +4,14 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   devtool: 'inline-source-map',
-  entry: [path.resolve(__dirname, 'src/index')],
   target: 'web',
+  mode: 'development',
+  entry: [path.resolve(__dirname, 'src/index')],
   output: {
     path: path.resolve(__dirname, 'src'),
     publicPath: '/',
     filename: 'bundle.js'
   },
-  mode: 'development',
   plugins: [
     new webpack.LoaderOptionsPlugin({
       debug: false,
