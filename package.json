@@ -26,7 +26,7 @@
     "build": "babel-node buildScripts/build.js",
     "postbuild": "babel-node buildScripts/distServer.js",
     "deploy": "surge ./dist",
-    "teardown": "surge teardown mvciekzvbek.com"
+    "teardown": "surge teardown mvciekzvbek.surge.sh"
   },
   "dependencies": {
     "whatwg-fetch": "^3.0.0"
