@@ -2,7 +2,8 @@ import webpack from 'webpack';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import WebpackMd5Hash from 'webpack-md5-hash';
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin'
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export default {
   devtool: 'source-map',
@@ -42,6 +43,13 @@ export default {
         minifyURLs: true
       },
       inject: true
+    }),
+
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: "[name].css",
+      chunkFilename: "[id].css"
     })
   ],
   optimization: {
@@ -66,7 +74,14 @@ export default {
 
   module: {
     rules: [
-      { test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader'] }
+      { test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader'] },
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader"
+        ]
+      }
     ]
   }
 };
